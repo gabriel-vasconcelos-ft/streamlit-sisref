@@ -8,6 +8,18 @@ import seaborn as sns
 #st.write(df)
 
 filename = "relatorio-sisref-sad-relatorio-sisref-sad.csv"
-st.dataframe(pd.read_csv(filename))
+df = pd.read_csv(filename)
+st.dataframe(df)
+
+
+#Contagem de Refeições
+contagem_refeicoes = df['Refeicao'].value_counts()
+fig, ax = plt.subplots()
+sns.barplot(x=contagem_refeicoes.index, y=contagem_refeicoes.values)
+plt.xlabel('Tipo de Refeição')
+plt.ylabel('Contagem')
+plt.title('Contagem de Refeições por Tipo')
+plt.xticks(rotation=30)
+st.pyplot()
 
 
