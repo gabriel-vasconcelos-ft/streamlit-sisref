@@ -20,7 +20,7 @@ plt.xlabel('Tipo de Refeição')
 plt.ylabel('Contagem')
 plt.title('Contagem de refeições por tipo')
 plt.xticks(rotation=30)
-st.pyplot()
+st.pyplot(fig)
 
 
 #Contagem de reservas por curso
@@ -31,7 +31,7 @@ plt.xlabel('Curso')
 plt.ylabel('Reservas')
 plt.title('Contagem de reservas por Curso')
 plt.xticks(rotation=50)
-st.pyplot()
+st.pyplot(fig)
 
 
 #Quantidade de alunos que compareceram
@@ -42,7 +42,7 @@ plt.xlabel('Compareceu')
 plt.ylabel('Quantidade')
 plt.title('Quantidade de alunos que compareceram')
 plt.xticks(rotation=45)
-st.pyplot()
+st.pyplot(fig)
 
 
 #Revervas por dia
@@ -53,7 +53,4 @@ plt.xlabel('Data')
 plt.ylabel('Revervas')
 plt.title('Revervas por dia')
 plt.xticks(rotation=45)
-st.pyplot()
-
-#Correção mensagem de erro
-st.set_option('deprecation.showPyplotGlobalUse', False)
+st.pyplot(fig)
