@@ -2,6 +2,8 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
+from textwrap import wrap
+
 
 #url = 'https://docs.google.com/spreadsheets/d/1Xr6uPNAlT4n9FDuR91JyY2QwFGLGmMICPE5WqjW-s1k/edit#gid=1378939680' 
 #df = pd.read_csv(url)
@@ -16,22 +18,23 @@ st.dataframe(df)
 ctg_refeicoes = df['Refeicao'].value_counts()
 fig, ax = plt.subplots(figsize=(8,8))
 sns.barplot(x=ctg_refeicoes.index, y=ctg_refeicoes.values)
-plt.xlabel('Tipo de Refeição')
+plt.xlabel('Período de Refeição')
 plt.ylabel('Contagem')
-plt.title('Contagem de refeições por tipo')
+plt.title('Contagem de refeições por Período')
 plt.xticks(rotation=30)
-st.pyplot(fig)
+st.pyplot(fig.figure)
 
 
 #Contagem de reservas por curso
 ctg_reservas = df['Curso'].value_counts()
 fig, ax = plt.subplots(figsize=(10,10))
 sns.barplot(x=ctg_reservas.index, y=ctg_reservas.values)
+ax.set_xticklabels(['\n'.join(wrap(label, 20)) for label in ctg_reservas.index])
 plt.xlabel('Curso')
 plt.ylabel('Reservas')
 plt.title('Contagem de reservas por Curso')
-plt.xticks(rotation=50)
-st.pyplot(fig)
+plt.xticks(rotation=60)
+st.pyplot(fig.figure)
 
 
 #Quantidade de alunos que compareceram
@@ -42,7 +45,7 @@ plt.xlabel('Compareceu')
 plt.ylabel('Quantidade')
 plt.title('Quantidade de alunos que compareceram')
 plt.xticks(rotation=45)
-st.pyplot(fig)
+st.pyplot(fig.figure)
 
 
 #Revervas por dia
@@ -53,4 +56,4 @@ plt.xlabel('Data')
 plt.ylabel('Revervas')
 plt.title('Revervas por dia')
 plt.xticks(rotation=45)
-st.pyplot(fig)
+st.pyplot(fig.figure)
